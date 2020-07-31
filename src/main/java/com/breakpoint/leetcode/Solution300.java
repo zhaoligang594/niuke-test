@@ -1,5 +1,7 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.annotation.Success;
+
 /**
  * 300. 最长上升子序列
  * middle
@@ -9,6 +11,7 @@ package com.breakpoint.leetcode;
  * @author :breakpoint/赵立刚
  * @date : 2020/07/12
  */
+@Success
 public class Solution300 {
 
     /*

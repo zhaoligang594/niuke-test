@@ -1,5 +1,6 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.annotation.Success;
 import com.breakpoint.utils.LinkListUtils;
 import com.breakpoint.utils.ListNode;
 
@@ -11,6 +12,7 @@ import com.breakpoint.utils.ListNode;
  * @author :breakpoint/赵立刚
  * @date : 2020/07/09
  */
+@Success
 public class Solution23 {
 
     public static void main(String[] args) {
@@ -45,7 +47,7 @@ public class Solution23 {
                 for (int i = 0; i < middle; i++) {
                     lists[i] = mergeTwoLists(lists[i], lists[len - i - 1]);
                 }
-                len = len % 2 == 0 ? len / 2 : len / 2 + 1;
+                len = len / 2 + len % 2;
                 middle = len / 2;
             }
             return lists[0];

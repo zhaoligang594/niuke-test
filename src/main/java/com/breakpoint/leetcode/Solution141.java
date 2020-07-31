@@ -12,6 +12,8 @@ import com.breakpoint.utils.ListNode;
  */
 public class Solution141 {
 
+
+
     public static void main(String[] args) {
         int[] nums = {3, 2, 0, -4};
         ListNode listNodeByArray = LinkListUtils.getListNodeByArray(nums, 1);

@@ -1,6 +1,7 @@
 package com.breakpoint.leetcode;
 
 /**
+ * 440. 字典序的第K小数字
  * https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/
  *
  * @author :breakpoint/赵立刚
@@ -13,7 +14,6 @@ public class Solution440 {
         int kthNumber = new Solution440().findKthNumber(13, 5);
         System.out.println(kthNumber);
     }
-
     // 1..n 字典排序
     public int findKthNumber(int n, int k) {
 
@@ -33,7 +33,7 @@ public class Solution440 {
         if (k == 1) {
             return start;
         } else if (k > 1) {
-            final int len = (int)Math.pow(10,(n + "").length()-1);
+            final int len = (int) Math.pow(10, (n + "").length() - 1);
             return start * 10 + findKthNumber(n % len, k - 1);
         }
 

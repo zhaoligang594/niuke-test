@@ -12,7 +12,7 @@ public class HeapSortTest {
         heap sort 的核心就是调整我们的堆
      */
     public static void main(String[] args) {
-        int[] nums = {1, 2, 4, 5, 9, 6, 7, 3, 8};
+        int[] nums = {1, 2, 4, 5, 9, 6, 7, 3, 8,-1};
         new HeapSortTest().hSort(nums);
     }
 
@@ -24,6 +24,7 @@ public class HeapSortTest {
             pos--;
         }
     }
+
     /**
      * 调整为小根堆
      *
@@ -50,7 +51,8 @@ public class HeapSortTest {
     private int getSwapIndex(int[] nums, int index, int pos) {
         int swapIndex = -1;
         if (2 * index + 1 <= pos) {
-            swapIndex = nums[2 * index] > nums[2 * index - 1] ? 2 * index : 2 * index + 1;
+            swapIndex = nums[2 * index] > nums[2 * index - 1] ?
+                    2 * index : 2 * index + 1;
         } else if (2 * index <= pos) {
             swapIndex = 2 * index;
         }

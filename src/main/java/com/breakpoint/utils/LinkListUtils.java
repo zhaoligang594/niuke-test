@@ -50,4 +50,12 @@ public abstract class LinkListUtils {
             return head;
         }
     }
+
+
+    public static void printLinkList(ListNode root) {
+        while (null != root){
+            System.out.print(root.val+" ");
+            root=root.next;
+        }
+    }
 }

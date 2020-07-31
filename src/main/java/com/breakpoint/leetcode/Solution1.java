@@ -1,5 +1,7 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.utils.ListNode;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +14,6 @@ public class Solution1 {
 
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
-
         int[] ints = new Solution1().twoSum(nums, 9);
         System.out.println(Arrays.toString(ints));
     }

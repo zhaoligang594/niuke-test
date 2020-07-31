@@ -52,11 +52,12 @@ public class Solution56 {
                 k++;
                 intervals[k][0] = intervals[j][0];
                 intervals[k][1] = intervals[j][1];
-                i=k;
+                i = k;
                 j++;
             }
         }
 
+        // 一直存储的是当前的索引 并不是数组的长度
         k++;
 
         if (k == intervals.length) {

@@ -19,7 +19,8 @@ public class Solution21 {
         ListNode l1 = LinkListUtils.getListNodeByArray(list1Nums);
         ListNode l2 = LinkListUtils.getListNodeByArray(list2Nums);
         ListNode listNode = new Solution21().mergeTwoLists(l1, l2);
-        System.out.println(listNode);
+        LinkListUtils.printLinkList(listNode);
+        //System.out.println(listNode);
     }
 
     // 合并两个有序链表
