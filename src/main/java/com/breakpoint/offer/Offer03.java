@@ -1,5 +1,10 @@
 package com.breakpoint.offer;
 
+import com.breakpoint.annotation.Success;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 剑指 Offer 03. 数组中重复的数字
  * simple
@@ -9,6 +14,7 @@ package com.breakpoint.offer;
  * @author :breakpoint/赵立刚
  * @date : 2020/07/15
  */
+@Success
 public class Offer03 {
     /*
         找出数组中重复的数字。
@@ -33,7 +39,24 @@ public class Offer03 {
      */
 
 
+    public static void main(String[] args) {
+        int[] nums = {0, 1, 2, 3, 4, 11, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int i = new Offer03().findRepeatNumber(nums);
+        System.out.println(i);
 
+    }
+
+    public int findRepeatNumber(int[] nums) {
+        int[] tags = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            if (tags[nums[i]] < 0) {
+                return nums[i];
+            } else {
+                tags[nums[i]] = -1;
+            }
+        }
+        return -1;
+    }
 
 
 }

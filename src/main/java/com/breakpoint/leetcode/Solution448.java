@@ -2,6 +2,8 @@ package com.breakpoint.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/
@@ -20,25 +22,15 @@ public class Solution448 {
     }
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        final int len = nums.length;
-        int target = 1 + len;
-
-        for (int i = 0; i < len; i++) {
-            Integer k = target - nums[i];
-            if(list.contains(k)){
-                list.remove(k);
-            }
+        Set<Integer> set = new TreeSet<>();
+        for (Integer val : nums) {
+            set.add(val);
         }
-
-
-        for (int i = 1; i <= len; i++) {
-            list.add(i);
+        List<Integer> res = new ArrayList<>();
+        for (Integer i = 1; i <= nums.length; i++) {
+            if (!set.contains(i)) res.add(i);
         }
-        for (int i = 0; i < len; i++) {
-            list.remove((Object) nums[i]);
-        }
-        return list;
+        return res;
     }
 
 

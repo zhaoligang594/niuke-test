@@ -3,13 +3,13 @@ package com.breakpoint.utils;
 import java.util.ArrayDeque;
 
 public abstract class TreeUtils {
-	/**
+
+
+    /**
      * 创建我们的二叉树
-     *
-     * @param treeNodes
-     * @return
      */
     public static TreeNode createTree(Integer[] treeNodes) {
+        if (null == treeNodes || treeNodes.length == 0) return null;
         ArrayDeque<TreeNode> queue = new ArrayDeque<>(16);
         TreeNode returnTreeNode = new TreeNode(treeNodes[0]);
         queue.push(returnTreeNode);

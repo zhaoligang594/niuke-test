@@ -1,5 +1,8 @@
 package com.breakpoint.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 136 只出现一次的数字
  * https://leetcode-cn.com/problems/single-number/
@@ -24,21 +27,15 @@ public class Solution136 {
 
 
     public int singleNumber(int[] nums) {
-
-        final int len = nums.length;
-
-        for (int i = 0; i < len; i++) {
-            int num = nums[i];
-
-            int index = num / len;
-
-           // while ()
-
-
-
-
+        Map<Integer, Byte> map = new HashMap<>();
+        Byte b = new Byte((byte) 1);
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.remove(num);
+            } else {
+                map.put(num, b);
+            }
         }
-
-        return 0;
+        return map.keySet().toArray(new Integer[0])[0];
     }
 }

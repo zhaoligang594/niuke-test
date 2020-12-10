@@ -1,12 +1,12 @@
 package com.breakpoint.leetcode;
 
-import com.breakpoint.utils.ListNode;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 2个数之和
+ *
  * @author :breakpoint/赵立刚
  * @date : 2020/07/09
  */
@@ -22,7 +22,6 @@ public class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         int[] returnval = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int i = 0; i < nums.length; i++) {
             Integer integer = map.get(target - nums[i]);
             if (null != integer) {
@@ -32,8 +31,6 @@ public class Solution1 {
             } else {
                 map.put(nums[i], i);
             }
-
-
         }
         return null;
     }
