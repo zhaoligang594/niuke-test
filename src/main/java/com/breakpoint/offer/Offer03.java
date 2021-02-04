@@ -46,13 +46,20 @@ public class Offer03 {
 
     }
 
+    /**
+     * 找到重复数
+     *
+     * @param nums 输入的参数
+     * @return 返回的对象
+     */
     public int findRepeatNumber(int[] nums) {
+        // 设定一个标记的数组 来表示 当前是否已经查看过了 实际上也是一个 hash
         int[] tags = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            if (tags[nums[i]] < 0) {
+            if (tags[nums[i]] < 0) { // 说明已经访问过了
                 return nums[i];
             } else {
-                tags[nums[i]] = -1;
+                tags[nums[i]] = -1;// 没有访问过 那么就标记为 -1
             }
         }
         return -1;

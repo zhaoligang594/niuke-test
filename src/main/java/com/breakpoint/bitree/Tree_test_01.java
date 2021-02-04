@@ -34,6 +34,73 @@ public class Tree_test_01 {
         System.out.println(treeNode1);
     }
 
+    // 访问节点
+    private static void visit(TreeNode node) {
+        // to do something
+        System.out.println(node.val);
+    }
+
+    /**
+     * 深度优先 先序遍历
+     *
+     * @param root 根节点
+     */
+    public static void preOrderDfs(TreeNode root) {
+        if (null != root) {
+            // 访问节点信息 处理相关操作
+            visit(root);
+            preOrderDfs(root.left);
+            preOrderDfs(root.right);
+        }
+    }
+
+    /**
+     * 深度优先 中序遍历
+     *
+     * @param root 根节点
+     */
+    public static void inOrderDfs(TreeNode root) {
+        if (null != root) {
+            inOrderDfs(root.left);
+            // 访问节点信息 处理相关操作
+            visit(root);
+            inOrderDfs(root.right);
+        }
+    }
+
+    /**
+     * 深度优先 后序遍历
+     *
+     * @param root 根节点
+     */
+    public static void postOrderDfs(TreeNode root) {
+        if (null != root) {
+            postOrderDfs(root.left);
+            postOrderDfs(root.right);
+            // 访问节点信息 处理相关操作
+            visit(root);
+        }
+    }
+
+    /**
+     * 广度优先 水平遍历
+     *
+     * @param root 跟节点
+     */
+    public static void lfs(TreeNode root) {
+        // 创建队列对象
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        if (null != root) {
+            queue.addLast(root);
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.pollFirst();
+                visit(node);
+                if (null != node.left) queue.addLast(node.left);
+                if (null != node.right) queue.addLast(node.right);
+            }
+        }
+    }
+
     // 先序遍历的操作
     public static void proOrderUnRecur(TreeNode head) {
         System.out.println("pro-order");

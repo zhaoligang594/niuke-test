@@ -10,12 +10,8 @@ public class ThreadTest03 {
 
 
     static class Methods {
-
         Object object = new Object();
-
-
         private volatile int stamp = 1;
-
         public void run01() {
             synchronized (object) {
                 if (stamp == 1) {
@@ -28,10 +24,7 @@ public class ThreadTest03 {
 
                 System.out.println(Thread.currentThread().getName());
             }
-
-
         }
-
         public void run02() {
             try {
                 TimeUnit.SECONDS.sleep(2);

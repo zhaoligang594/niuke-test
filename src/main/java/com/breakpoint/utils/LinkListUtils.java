@@ -2,8 +2,25 @@ package com.breakpoint.utils;
 
 public abstract class LinkListUtils {
 
+    /**
+     * 头插法创建链表
+     *
+     * @param array 创建的链表信息 [1,2,3,4,5]
+     * @return 1->2->3->4->5
+     */
+    public static ListNode getListByInsertHead(int[] array) {
+        ListNode head = null;
+        for (int i = 1; i < array.length; i++) {
+            ListNode node = new ListNode(array[i]);
+            node.next = head;
+            head = node;
+        }
+        return head;
+    }
 
-    // get list
+    /**
+     * 尾插法创建链表
+     */
     public static ListNode getListNodeByArray(int[] array) {
         ListNode head, cur;
         if (array.length > 0) {
@@ -53,9 +70,9 @@ public abstract class LinkListUtils {
 
 
     public static void printLinkList(ListNode root) {
-        while (null != root){
-            System.out.print(root.val+" ");
-            root=root.next;
+        while (null != root) {
+            System.out.print(root.val + " ");
+            root = root.next;
         }
     }
 }

@@ -18,7 +18,6 @@ public class Solution1 {
         System.out.println(Arrays.toString(ints));
     }
 
-
     public int[] twoSum(int[] nums, int target) {
         int[] returnval = new int[2];
         Map<Integer, Integer> map = new HashMap<>();

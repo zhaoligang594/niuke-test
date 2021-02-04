@@ -13,9 +13,7 @@ public abstract class TreeUtils {
         ArrayDeque<TreeNode> queue = new ArrayDeque<>(16);
         TreeNode returnTreeNode = new TreeNode(treeNodes[0]);
         queue.push(returnTreeNode);
-
         int i = 1;
-
         while (!queue.isEmpty()) {
             TreeNode pop = queue.removeLast();
             if (i < treeNodes.length && null != treeNodes[i]) {

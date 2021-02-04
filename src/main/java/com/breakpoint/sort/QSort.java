@@ -16,6 +16,14 @@ public class QSort {
         System.out.println(Arrays.toString(nums));
     }
 
+
+    /**
+     * 快速排序算法
+     *
+     * @param arr 待排序的属猪
+     * @param l   左边位置
+     * @param r   右边位置
+     */
     private static void qSort(int[] arr, int l, int r) {
         if (l < r) {
             int partition = getPartition(arr, l, r);
@@ -24,6 +32,14 @@ public class QSort {
         }
     }
 
+    /**
+     * 荷兰国旗的问题
+     *
+     * @param arr 排序数组
+     * @param l   左边位置
+     * @param r   右边位置
+     * @return 返回分割好后的中间位置
+     */
     private static int getPartition(int[] arr, int l, int r) {
         int temp = arr[l];
         while (l < r) {

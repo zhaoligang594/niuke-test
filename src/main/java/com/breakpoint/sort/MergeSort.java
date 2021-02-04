@@ -15,7 +15,11 @@ public class MergeSort {
         System.out.println(Arrays.toString(nums));
     }
 
-    // 归并排序的草籽u片
+    /**
+     * 归并排序算法
+     *
+     * @param nums 待排序的数组
+     */
     public static void mergeSort(int[] nums) {
         if (nums != null && nums.length >= 2) {
             //  其他的情况是不需要进行排序的
@@ -23,6 +27,13 @@ public class MergeSort {
         }
     }
 
+    /**
+     * 进行归并排序
+     *
+     * @param nums  带排序数组
+     * @param left  左边位置
+     * @param right 右边位置
+     */
     private static void mergeSort(int[] nums, int left, int right) {
         if (left != right) {
             int mid = (left + right) / 2;
@@ -32,6 +43,7 @@ public class MergeSort {
             int[] sorted = new int[right - left + 1];
             int p1 = left, p2 = mid + 1;
             int p = 0;
+            // 合并操作
             while (p1 <= mid || p2 <= right) {
                 if (p1 > mid) {
                     sorted[p++] = nums[p2++];
@@ -45,6 +57,7 @@ public class MergeSort {
                     }
                 }
             }
+            // 设置新值
             for (int k = 0; k < sorted.length; k++) {
                 nums[left + k] = sorted[k];
             }
