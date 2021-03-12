@@ -18,15 +18,13 @@ public class Solution1 {
         System.out.println(Arrays.toString(ints));
     }
 
+    // 连个数相加
     public int[] twoSum(int[] nums, int target) {
-        int[] returnval = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             Integer integer = map.get(target - nums[i]);
             if (null != integer) {
-                returnval[0] = integer;
-                returnval[1] = i;
-                return returnval;
+                return new int[]{integer, i};
             } else {
                 map.put(nums[i], i);
             }

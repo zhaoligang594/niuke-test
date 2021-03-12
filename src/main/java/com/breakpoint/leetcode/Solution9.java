@@ -20,53 +20,15 @@ public class Solution9 {
         System.out.println(palindrome);
     }
 
+    // 回文串
     public boolean isPalindrome(int x) {
-        if (x < 0) {
-            return false;
-        } else if (x == 0) {
-            return true;
-        } else {
-            int len = (x + "").length();
-            int[] temp = new int[len];
-            for (int i = len - 1; i >= 0; i--) {
-                temp[i] = x % 10;
-                x /= 10;
-            }
-            for (int i = 0; i < len / 2; i++) {
-                if (temp[i] != temp[len - i - 1]) {
-                    return false;
-                }
-            }
-            return true;
+        String XStr = String.valueOf(x);
+        int start = 0, end = XStr.length() - 1;
+        while (start < end) {
+            if (XStr.charAt(start) != XStr.charAt(end)) return false;
+            start++;
+            end--;
         }
+        return true;
     }
-
-//    public boolean isPalindrome(int x) {
-//        if (x < 0) {
-//            return false;
-//        } else if (x == 0) {
-//            return true;
-//        } else {
-//
-//            Stack<Integer> opts = new Stack<>();
-//            int y = x;
-//            while (y > 0) {
-//                opts.push(y % 10);
-//                y /= 10;
-//            }
-//            while (x > 0 && !opts.isEmpty()) {
-//                final int k = x % 10;
-//                if (k != opts.pop()) {
-//                    return false;
-//                }
-//                x/=10;
-//            }
-//            if (opts.isEmpty()) {
-//                return true;
-//            }
-//            return false;
-//        }
-//    }
-
-
 }

@@ -16,7 +16,6 @@ public class Solution11 {
 
         int i = new Solution11().maxArea(height);
         System.out.println(i);
-
     }
 
     // 双指针的方法
@@ -31,10 +30,8 @@ public class Solution11 {
             } else {
                 end--;
             }
-
             ans = Math.max(ans, area);
         }
         return ans;
-
     }
 }

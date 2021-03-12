@@ -1,9 +1,14 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.annotation.Success;
+
 /**
+ * 最新采用的是manacher算法实现
+ *
  * @author breakpoint/赵先生
  * 2020/10/06
  */
+@Success
 public class Solution5 {
 
     public static void main(String[] args) {
@@ -11,46 +16,37 @@ public class Solution5 {
         System.out.println(babad);
     }
 
+    // 求解最长的回文子串
     public String longestPalindrome(String s) {
         if (null == s || "".equals(s)) return "";
-        StringBuilder sb = new StringBuilder(s);
-        String reverse = sb.reverse().toString();
-        for (int i = 0; i < s.length(); i++) {
-            move(s, reverse, i);
-        }
-        for (int i = 0; i < s.length(); i++) {
-            move(reverse, s, i);
-        }
-        return res;
-    }
-
-    String res = "";
-
-    private void move(String data1, String data2, int i) {
         StringBuilder sb = new StringBuilder();
-        int j = 0;
-        for (; j <= i; j++) {
-            if (data1.charAt(j) == data2.charAt(data2.length() - 1 - i + j)) {
-                sb.append(data1.charAt(j));
-            } else {
-                int m = j - 1;//pre index
-                int l = m - sb.length() + 1;
-                if (l + m == i) {
-                    if (res.length() < sb.length()) {
-                        res = sb.toString();
-                        //System.out.println(res);
-                    }
-                }
-                sb.delete(0, sb.length());
+        sb.append("#");
+        for (char ch : s.toCharArray()) {
+            sb.append(ch).append("#");
+        }
+        int max = 0, index = 0;
+        // manacher 算法
+        int R = -1, C = 0, N = sb.length();
+        int[] radius = new int[sb.length()];
+        for (int i = 0; i < N; i++) {
+            int k = i > R ? 1 : Math.min(radius[2 * C - i], R - i);
+            // 向外部扩展
+            while (i - k >= 0 && i + k < N && sb.charAt(i - k) == sb.charAt(i + k)) k++;
+            radius[i] = k - 1;
+            if (i + radius[i] > R) {
+                R = i + radius[i];
+                C = i;
+            }
+            //  求解问题的需要
+            if (radius[i] > max) {
+                max = radius[i];
+                index = i;
             }
         }
-        int m = j - 1;//pre index
-        int l = m - sb.length() + 1;
-        if (l + m == i) {
-            if (res.length() < sb.length()) {
-                res = sb.toString();
-                //System.out.println(res);
-            }
+        StringBuilder res = new StringBuilder();
+        for (int i = index - max + 1; i < index + max; i += 2) {
+            res.append(sb.charAt(i));
         }
+        return res.toString();
     }
 }

@@ -1,9 +1,15 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.annotation.Success;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author breakpoint/赵先生
  * 2020/10/27
  */
+@Success
 public class Solution128 {
 
     public static void main(String[] args) {
@@ -12,47 +18,24 @@ public class Solution128 {
         System.out.println(i);
     }
 
+    // 求解最长的连续序列的求解方法 如何来进行展现
     public int longestConsecutive(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+        for (Integer num : nums) {
+            numSet.add(num);
+        }
         int res = 0;
-        if (nums.length > 0) {
-            qSort(nums, 0, nums.length - 1);
-            int[] dp = new int[nums.length];
-            dp[0] = 1;
-            res = Math.max(res, dp[0]);
-            for (int i = 1; i < nums.length; i++) {
-                if (nums[i] == nums[i - 1]){
-                    dp[i] = dp[i - 1];
-                    continue;
+        for (Integer num : numSet) {
+            if (!numSet.contains(num - 1)) {
+                int target = num, count = 0;
+                while (numSet.contains(target)) {
+                    target++;
+                    count++;
                 }
-                if (nums[i] - 1 == nums[i - 1]) {
-                    dp[i] = dp[i - 1] + 1;
-                } else {
-                    dp[i] = 1;
-                }
-                res = Math.max(res, dp[i]);
+                res = Math.max(res, count);
             }
         }
         return res;
-    }
-
-    private void qSort(int[] nums, int l, int r) {
-        if (l < r) {
-            int partition = getPartition(nums, l, r);
-            qSort(nums, l, partition - 1);
-            qSort(nums, partition + 1, r);
-        }
-    }
-
-    private int getPartition(int[] nums, int l, int r) {
-        int temp = nums[l];
-        while (l < r) {
-            while (l < r && nums[r] >= temp) r--;
-            if (l < r) nums[l] = nums[r];
-            while (l < r && nums[l] <= temp) l++;
-            if (l < r) nums[r] = nums[l];
-        }
-        nums[l] = temp;
-        return l;
     }
 
 }

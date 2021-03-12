@@ -17,10 +17,6 @@ public class Testone {
 //    )table1 order by score limit 0,10;
 
 
-
-
-
-
     public static void main(String[] args) {
 //        int[] nums = {1, 2, 3, 4, 5, 6};
 //        System.out.println(bSearch(nums, 0));
@@ -49,20 +45,14 @@ public class Testone {
         return -1;
     }
 
+    // 反转链表
     public static ListNode reverseList(ListNode head) {
         ListNode res = null, cur = head;
         while (cur != null) {
-            if (res == null) {
-                res = cur;
-                cur=cur.next;
-                res.next=null;
-            } else {
-                ListNode temp=cur.next;
-                cur.next = res;
-                res = cur;
-                cur = temp;
-            }
-            //head = head.next;
+            ListNode next = cur.next;
+            cur.next = res;
+            res = cur;
+            cur = next;
         }
         return res;
     }

@@ -41,12 +41,13 @@ public class Solution331 {
         System.out.println(validSerialization);
     }
 
+    // 验证前缀树
     public boolean isValidSerialization(String preorder) {
         if (preorder.length() == 0) return true;
         Deque<String> stack = new ArrayDeque<>();
         for (String ch : preorder.split(",")) {
             if ("#".equals(ch)) {
-                String pre = ch;
+                String pre = "#";
                 while (!stack.isEmpty()) {
                     if (pre.equals(stack.peekLast())) {
                         stack.pollLast();
@@ -65,8 +66,7 @@ public class Solution331 {
             } else {
                 stack.addLast(ch);
             }
-        }
-        if (!stack.isEmpty() && stack.size() == 1 && "#".equals(stack.peekLast())) return true;
-        return false;
+        } //end for
+        return stack.size() == 1 && "#".equals(stack.peekLast());
     }
 }

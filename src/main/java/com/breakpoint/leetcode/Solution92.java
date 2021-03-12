@@ -18,85 +18,25 @@ public class Solution92 {
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null) return null;
-        ListNode  prev = null, cur = head;
+        ListNode res = new ListNode(1), cur = head, prev = res;
+        res.next = head;
         while (m > 1) {
             prev = cur;
             cur = cur.next;
             m--;
             n--;
         }
-        ListNode con = prev, tail = cur;
-        ListNode third = null;
-        // 主要看 我们的 大小 以及 如何的操作我们的链表
+        ListNode tail = null;
         while (n > 0) {
-            third = cur.next;
-            cur.next = prev;
-            prev = cur;
-            cur = third;
+            if (null == tail) tail = cur;
+            ListNode next = cur.next;
+            cur.next = prev.next;
+            prev.next = cur;
+            cur = next;
             n--;
         }
-        if (con != null) {
-            con.next = prev;
-        } else {
-            head = prev;
-        }
-
-        tail.next = cur;
-        return head;
+        if (tail != null) tail.next = cur;
+        // 返回结果
+        return res.next;
     }
-
-//    public ListNode reverseBetween(ListNode head, int m, int n) {
-//        if (head == null || head.next == null) return head;
-//        ListNode res = null, opt = null, pre = null, cur = null;
-//        int k = 1;
-//        if (m != 1) {
-//            opt = head;
-//            pre = head;
-//            cur = pre.next;
-//            while (k < m - 1) {
-//                pre = pre.next;
-//                cur = pre.next;
-//                opt=opt.next;
-//                k++;
-//            }
-//        } else {
-//            cur = head;
-//        }
-//
-//        if (opt == null) {
-//            ListNode tail = null;
-//            while (k <= n) {
-//                if (opt == null) {
-//                    opt = cur;
-//                    //opt.next=null;
-//                    cur = cur.next;
-//                    if (null == tail) tail = opt;
-//                } else {
-//                    ListNode temp = cur.next;
-//                    cur.next = opt;
-//                    opt = cur;
-//                    cur = temp;
-//                }
-//                k++;
-//            }
-//            tail.next = cur;
-//        } else {
-//            while (k < n) {
-//                pre.next = cur.next;
-//                cur.next = opt.next;
-//                opt.next = cur;
-//                if (pre == opt) {
-//                    pre = pre.next;
-//                }
-//                cur = pre.next;
-//                k++;
-//            }
-//        }
-//        if (m == 1) {
-//            res = opt;
-//        } else {
-//            res = head;
-//        }
-//        return res;
-//    }
 }

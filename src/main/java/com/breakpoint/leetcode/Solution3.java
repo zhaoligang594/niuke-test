@@ -16,26 +16,28 @@ public class Solution3 {
         System.out.println(abcabcbb);
     }
 
+    // 无重复字符的最长子串
+    // 采用双指针的方式求解这个问题 一般 含有连续的字眼的题目都是采用双指针的方式来进行解决
     public int lengthOfLongestSubstring(String s) {
         if ("".equals(s)) return 0;
-        int start = 0, end = 0, res = 0;
+        int left = 0, right = 0, res = 0;
         Set<Character> set = new HashSet<>();
-        for (; end < s.length(); ) {
-            Character ch = s.charAt(end);
+        while (right < s.length()) {
+            char ch = s.charAt(right);
             if (set.add(ch)) {
-                end++;
+                right++;
             } else {
-                res = Math.max(res, end - start);
-                while (s.charAt(start) != ch) {
-                    set.remove(s.charAt(start));
-                    start++;
+                res = Math.max(res, right - left);
+                while (s.charAt(left) != ch) {
+                    set.remove(s.charAt(left));
+                    left++;
                 }
-                start++;
+                left++;
                 set.add(ch);
-                end++;
+                right++;
             }
         }
-        res = Math.max(res, end - start);
+        res = Math.max(res, right - left);
         return res;
     }
 }

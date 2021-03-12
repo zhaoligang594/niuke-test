@@ -59,17 +59,17 @@ public class Solution124 {
         maxPathSum2(root);
         return max;
     }
+
     private int maxPathSum2(TreeNode root) {
         if (null != root) {
             int val = root.val;
             int left = maxPathSum2(root.left);
             int right = maxPathSum2(root.right);
-
             if (left < 0) {
-                left=0;
+                left = 0;
             }
             if (right < 0) {
-                right=0;
+                right = 0;
             }
             if (val + left + right > max) {
                 max = val + left + right;
@@ -78,7 +78,5 @@ public class Solution124 {
         } else {
             return 0;
         }
-    }
-
-
+    } // end method
 }

@@ -60,9 +60,7 @@ public class Solution114 {
      * @param root
      */
     public void flatten(TreeNode root) {
-
         Stack<TreeNode> stack = new Stack<>();
-
         TreeNode temp = root;
         // 主要的思想是 保存一下right 的数据
         while (null != temp || !stack.isEmpty()) {

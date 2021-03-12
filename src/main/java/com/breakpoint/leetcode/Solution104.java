@@ -21,13 +21,10 @@ public class Solution104 {
         System.out.println(i);
     }
 
-
     public int maxDepth(TreeNode root) {
         if (null == root) {
             return 0;
         }
-        int deptLeft = 1 + maxDepth(root.left);
-        int deptRight = 1 + maxDepth(root.right);
-        return deptLeft > deptRight ? deptLeft : deptRight;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 }

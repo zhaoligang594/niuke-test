@@ -11,6 +11,12 @@ import java.util.List;
  */
 public class Solution118 {
 
+    /**
+     * 生成
+     *
+     * @param numRows
+     * @return
+     */
     public List<List<Integer>> generate(int numRows) {
         if (numRows == 0) return Collections.emptyList();
         List<List<Integer>> res = new ArrayList<>();

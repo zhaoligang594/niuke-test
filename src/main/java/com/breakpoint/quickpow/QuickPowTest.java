@@ -27,7 +27,6 @@ public class QuickPowTest {
          new QuickPowTest();
     }
 
-
     // 快速幂的实现方式
     public static long pow(int m, int n, int mod) {
         long res = 1, base = mod;

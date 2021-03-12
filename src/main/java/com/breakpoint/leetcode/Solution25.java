@@ -28,12 +28,8 @@ public class Solution25 {
         if (null == head || null == head.next) {
             return head;
         }
-
         ListNode res = null, cur = null;
-
         Stack<ListNode> stack = new Stack<>();
-
-
         while (null != head) {
             ListNode temp = head;
             while (null != temp) {
@@ -44,14 +40,12 @@ public class Solution25 {
                     break;
                 }
             }
-
             if (stack.size() < k) {
                 cur.next = head;
                 cur = stack.peek();
                 stack.clear();
                 head = null;
             }
-
             while (!stack.isEmpty()) {
                 if (null == res) {
                     res = stack.pop();
@@ -62,11 +56,9 @@ public class Solution25 {
                 }
             }
         }
-
         if (cur != null) {
             cur.next = null;
         }
-
         return res;
 
     }
