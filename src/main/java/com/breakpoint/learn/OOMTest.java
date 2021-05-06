@@ -21,8 +21,12 @@ public class OOMTest {
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
         unsafeField.setAccessible(true);
         Unsafe unsafe = (Unsafe) unsafeField.get(null);
+        List<Object> objects = new ArrayList<>();
+        int i=0;
         while (true) {
-            unsafe.allocateMemory(_1MB);
+//            unsafe.allocateMemory(_1MB);
+//            objects.add(new Object());
+            String intern = String.valueOf("挥洒圣诞卡浑善达克哈数据库电话卡时代大厦路口都好啦开始打"+i).intern();
         }
     }
 }

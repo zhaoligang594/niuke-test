@@ -17,28 +17,26 @@ public class Solution27 {
         著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public static void main(String[] args) {
-        int[] nums = {3,2,2,3};
+        int[] nums = {3, 2, 2, 3};
         int i = new Solution27().removeElement(nums, 2);
         System.out.println(i);
     }
 
     public int removeElement(int[] nums, int val) {
-
-        int start = 0;
-        while (start < nums.length && nums[start] != val) start++;
-        if (start < nums.length) {
-            int end = start + 1;
-            while (end < nums.length) {
-                if(nums[end] != val){
-                    nums[start] = nums[end];
-                    start++;
-                }
+        int start = 0, end = 1;
+        while (end < nums.length) {
+            if (nums[start] == val && nums[end] != val) {
+                nums[start] = nums[end];
+                start++;
+                end++;
+            }else if(nums[start] == val && nums[end] == val){
+                end++;
+            }else{
+                nums[start] = nums[end];
+                start++;
                 end++;
             }
-            return start;
-        } else {
-            return nums.length;
         }
-
+        return start + 1;
     }
 }

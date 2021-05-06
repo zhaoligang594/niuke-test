@@ -17,34 +17,22 @@ public class Solution26 {
      */
 
     public static void main(String[] args) {
-        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         int i = new Solution26().removeDuplicates(nums);
         System.out.println(i);
     }
 
     // 排序的数组 说明原来是有序的。。。
+    // 返回数组的长度的
     public int removeDuplicates(int[] nums) {
-
         int start = 0, end = 1;
-        boolean isAll=true;
         while (end < nums.length) {
             if (nums[start] != nums[end]) {
                 start++;
-                end++;
-            } else {
-                isAll=false;
-                while (end < nums.length && nums[end] == nums[start]) end++;
-                start++;
-                if(end<nums.length){
-                    nums[start] = nums[end];
-                }
+                nums[start] = nums[end];
             }
+            end++;
         }
-
-        if(isAll){
-            return nums.length;
-        }
-
-        return start;
+        return start + 1;
     }
 }

@@ -6,7 +6,7 @@ import java.lang.annotation.*;
  * 执行成功
  *
  * @author :breakpoint/赵立刚
- * @date : 2020/07/10
+ * create on 2020/07/10
  */
 @Inherited
 @Target(ElementType.TYPE)
