@@ -33,6 +33,7 @@ public class MyInterfaceTest {
             this.interfaces = interfaces;
         }
 
+        @SuppressWarnings("unchecked")
         public T getProxyObject() {
             return (T) Proxy.newProxyInstance(interfaces.getClassLoader(), new Class[]{interfaces}, this);
         }

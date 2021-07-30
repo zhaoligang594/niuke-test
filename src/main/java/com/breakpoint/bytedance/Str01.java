@@ -30,8 +30,6 @@ public class Str01 {
             int max = 0, a = 0, b = 1, k = 0;
             Set<Character> set = new HashSet<>();
             set.add(s.charAt(a));
-
-
             while (b < len) {
                 while (b < len && s.charAt(a) != s.charAt(b) && set.add(s.charAt(b))) b++;
                 if ((k = set.size()) > max) {

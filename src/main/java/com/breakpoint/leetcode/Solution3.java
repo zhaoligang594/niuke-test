@@ -21,19 +21,19 @@ public class Solution3 {
     public int lengthOfLongestSubstring(String s) {
         if ("".equals(s)) return 0;
         int left = 0, right = 0, res = 0;
-        Set<Character> set = new HashSet<>();
+        boolean[] tag = new boolean[26];
         while (right < s.length()) {
             char ch = s.charAt(right);
-            if (set.add(ch)) {
+            if (!tag[ch - 'a']) {
+                tag[ch - 'a'] = true;
                 right++;
             } else {
                 res = Math.max(res, right - left);
                 while (s.charAt(left) != ch) {
-                    set.remove(s.charAt(left));
+                    tag[s.charAt(left) - 'a'] = false;
                     left++;
                 }
                 left++;
-                set.add(ch);
                 right++;
             }
         }

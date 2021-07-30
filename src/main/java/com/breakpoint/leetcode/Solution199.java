@@ -43,10 +43,6 @@ public class Solution199 {
 
     /*
             深度优先遍历的操作
-
-
-
-
      */
 
     public List<Integer> rightSideView(TreeNode root) {
@@ -67,6 +63,4 @@ public class Solution199 {
             dfs(root.left, list, level + 1);
         }
     }
-
-
 }
