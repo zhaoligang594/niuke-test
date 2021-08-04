@@ -4,13 +4,12 @@ package com.breakpoint.bytedance;
 import java.util.*;
 
 /**
+ * https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1012/
+ *
  * @author :breakpoint/赵立刚
- * @date : 2020/07/08
+ * create on 2020/07/08
  */
 public class Str01 {
-    /*
-           https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1012/
-     */
     public static void main(String[] args) {
 
         int abcabcbb = new Str01().lengthOfLongestSubstring("aav");
@@ -22,7 +21,6 @@ public class Str01 {
         if (null == s || Objects.equals(s, "")) {
             return 0;
         }
-
         final int len = s.length();
         if (1 == len) {
             return 1;
@@ -35,15 +33,15 @@ public class Str01 {
                 if ((k = set.size()) > max) {
                     max = k;
                 }
-                do{
+                do {
                     set.remove(s.charAt(a));
                     a++;
-                }while (a < b && b < len && s.charAt(a) != s.charAt(b));
-                if(a<len){
+                } while (a < b && b < len && s.charAt(a) != s.charAt(b));
+                if (a < len) {
                     set.remove(s.charAt(a));
                 }
 
-                if(b<len){
+                if (b < len) {
                     set.add(s.charAt(b));
                 }
                 //a++;

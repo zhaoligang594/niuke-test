@@ -5,20 +5,16 @@ package com.breakpoint.bytedance;
  * https://blog.csdn.net/qq_42247231/article/details/106482591
  * https://leetcode-cn.com/problems/trapping-rain-water/solution/jie-yu-shui-by-leetcode/
  *
- *
  * @author :breakpoint/赵立刚
  * @date : 2020/07/14
  */
 public class RainTest {
-
 
     public static void main(String[] args) {
         int[] nums = {3, 2, 1, 4, 5, 1, 8};
         int trap = new RainTest().trap(nums);
         System.out.println(trap);
     }
-
-
 
     public int trap(int[] nums) {
         if (null == nums || nums.length == 0) {
@@ -40,6 +36,5 @@ public class RainTest {
         }
         return ans;
     }
-
 
 }
