@@ -1,6 +1,8 @@
 package com.breakpoint.thread;
 
 /**
+ * 3个线程打印ABC字母
+ *
  * @author 赵立刚 <zhaoligang@kuaishou.com>
  * Created on 2021-03-15
  */
