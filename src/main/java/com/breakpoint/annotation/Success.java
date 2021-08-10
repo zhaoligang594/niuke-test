@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  * create on 2020/07/10
  */
 @Inherited
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Success {
 }

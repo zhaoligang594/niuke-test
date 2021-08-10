@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @author :breakpoint/赵立刚
  * @date : 2020/07/10
  */
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Fail {
 }

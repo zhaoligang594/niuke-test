@@ -1,5 +1,7 @@
 package com.breakpoint.bitree;
 
+import com.breakpoint.annotation.Fail;
+import com.breakpoint.annotation.Success;
 import com.breakpoint.utils.TreeNode;
 import com.breakpoint.utils.TreeUtils;
 
@@ -21,6 +23,8 @@ public class Tree_test_01 {
     public static void main(String[] args) {
         Integer[] tree = {1, 2, 3, 4, 5, 6};
         TreeNode treeNode = TreeUtils.createTree(tree);
+        preOrder(treeNode);
+        System.out.println("=========");
         proOrderUnRecur(treeNode);
         // 非递归的遍历操作
         morrisPre(treeNode);
@@ -32,6 +36,21 @@ public class Tree_test_01 {
         System.out.println(s);
         TreeNode treeNode1 = reConTree(s);
         System.out.println(treeNode1);
+    }
+
+    @Success
+    public static void preOrder(TreeNode root) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode node = root;
+        while (null != node) {
+            stack.addLast(node);
+            node = stack.peekLast();
+            System.out.println(node.val);
+            node = node.left;
+            while (node == null && !stack.isEmpty()) {
+                node = stack.pollLast().right;
+            }
+        }
     }
 
     // 访问节点
