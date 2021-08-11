@@ -16,13 +16,10 @@ public class StackTest {
 
     public static void main(String[] args) {
         // define a stack
-        Stack<Integer> stack=new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         // opt it
         stack.push(1);
         stack.push(2);
-
-        System.out.println( stack.peek());
-
-
+        System.out.println(stack.peek());
     }
 }

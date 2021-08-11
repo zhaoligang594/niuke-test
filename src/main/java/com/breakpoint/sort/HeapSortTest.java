@@ -139,5 +139,4 @@ public class HeapSortTest {
         }
         nums[index - 1] = num;
     }
-
 }

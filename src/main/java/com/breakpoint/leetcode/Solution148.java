@@ -1,5 +1,6 @@
 package com.breakpoint.leetcode;
 
+import com.breakpoint.annotation.Success;
 import com.breakpoint.utils.LinkListUtils;
 import com.breakpoint.utils.ListNode;
 
@@ -9,8 +10,9 @@ import com.breakpoint.utils.ListNode;
  * middle
  *
  * @author :breakpoint/赵立刚
- * @date : 2020/08/24
+ * create on 2020/08/24
  */
+@Success
 public class Solution148 {
 
     /*
@@ -38,12 +40,42 @@ public class Solution148 {
         System.out.println(listNode);
     }
 
-
+    // 采用归并排序的方式求解这个问题
     public ListNode sortList(ListNode head) {
-
-
-        return head;
+        if (null == head || head.next == null) return head;
+        ListNode l = head, fast = head, slow = head, r = null;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        r = slow.next;
+        slow.next = null;
+        ListNode left = sortList(l);
+        ListNode right = sortList(r);
+        return combine(left, right);
     }
 
-
+    // 合并2个有序的链表
+    private ListNode combine(ListNode left, ListNode right) {
+        if (left == null) return right;
+        if (left == right) return left;
+        ListNode res = new ListNode(-1), tail = res;
+        while (left != null && right != null) {
+            if (left.val > right.val) {
+                tail.next = right;
+                right = right.next;
+            } else {
+                tail.next = left;
+                left = left.next;
+            }
+            tail = tail.next;
+        }
+        if (null != left) {
+            tail.next = left;
+        }
+        if (null != right) {
+            tail.next = right;
+        }
+        return res.next;
+    }
 }

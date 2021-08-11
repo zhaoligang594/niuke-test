@@ -35,6 +35,9 @@ public class MergeSort {
      * @param right 右边位置
      */
     private static void mergeSort(int[] nums, int left, int right) {
+        // 归并排序的算法 如何来做
+        // 也即是说 两个有序的数组归并进行排序
+        // 算法的是稳定的算法
         if (left != right) {
             int mid = (left + right) / 2;
             mergeSort(nums, left, mid);

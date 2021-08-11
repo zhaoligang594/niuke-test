@@ -4,6 +4,7 @@ import com.breakpoint.annotation.Success;
 
 /**
  * 最新采用的是manacher算法实现
+ * 5. 最长回文子串
  *
  * @author breakpoint/赵先生
  * 2020/10/06
@@ -26,6 +27,7 @@ public class Solution5 {
         }
         int max = 0, index = 0;
         // manacher 算法
+        // C 是对应 R 的半径的中心的位置
         int R = -1, C = 0, N = sb.length();
         int[] radius = new int[sb.length()];
         for (int i = 0; i < N; i++) {
