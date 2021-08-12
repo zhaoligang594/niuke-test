@@ -6,7 +6,7 @@ package com.breakpoint.leetcode;
  * https://leetcode-cn.com/problems/climbing-stairs/
  *
  * @author :breakpoint/赵立刚
- * @date : 2020/07/13
+ * create on 2020/07/13
  */
 public class Solution70 {
 
@@ -45,7 +45,7 @@ public class Solution70 {
     }
 
     // 动态规划的题目
-    public int climbStairs(int n) {
+    public int climbStairs2(int n) {
         if (n == 1) {
             return 1;
         }
@@ -58,4 +58,21 @@ public class Solution70 {
         return dp[n - 1];
     }
 
+    // 滚动数组的方式求解
+    // 可以让空间的复杂度降低
+    public int climbStairs(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+        int a = 1, b = 2, c = a + b;
+        for (int i = 2; i < n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
 }

@@ -56,16 +56,7 @@ public class Solution39 {
         System.out.println(lists);
     }
 
-    List<List<Integer>> res = new ArrayList<>();
-
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        Deque<Integer> queue = new ArrayDeque<>();
-        Arrays.sort(candidates);
-        combinationSum(candidates, target, queue, 0);
-        return res;
-    }
-
-    /*
+        /*
         产生重复的原因是：在每一个结点，做减法，展开分支的时候，由于题目中说 每一个元素可以重复使用，我们考虑了 所有的 候选数，因此出现了重复的列表。
 
         一种简单的去重方案是借助哈希表的天然去重的功能，但实际操作一下，就会发现并没有那么容易。
@@ -78,6 +69,17 @@ public class Solution39 {
         来源：力扣（LeetCode）
         著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      */
+
+
+    List<List<Integer>> res = new ArrayList<>();
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Deque<Integer> queue = new ArrayDeque<>();
+        //Arrays.sort(candidates);
+        combinationSum(candidates, target, queue, 0);
+        return res;
+    }
+
     public void combinationSum(int[] candidates, int target, Deque<Integer> queue, int begin) {
         if (target == 0) {
             res.add(new ArrayList<>(queue));
@@ -93,8 +95,6 @@ public class Solution39 {
                     break;
                 }
             }
-        } else {
-            // nothing to do
         }
     }
 }

@@ -1,8 +1,10 @@
 package com.breakpoint.leetcode;
 
 /**
+ * 53. 最大子序和
+ *
  * @author :breakpoint/赵立刚
- * @date : 2020/06/30
+ * create on 2020/06/30
  */
 public class Solution53 {
     /*
@@ -28,23 +30,16 @@ public class Solution53 {
         System.out.println(i);
     }
 
-    //  [-2,1,-3,4,-1,2,1,-5,4],
-
     /*
-                思路：
-                对后面没有影响：
+        前面的所有加在一起 小于0 就是 纳闷 在它的后面 加上任何的一个数 都是 越来越小的
      */
-
     public int maxSubArray(int[] nums) {
-        int max = nums[0];
-        int temp = nums[0];
+        int max = nums[0], temp = nums[0];
         final int len = nums.length;
         for (int i = 1; i < len; i++) {
             final int val = nums[i];
             temp = temp <= 0 ? val : temp + val;
-            if (temp > max) {
-                max = temp > max?temp:max;
-            }
+            max = Math.max(temp, max);
         }
         return max;
     }
