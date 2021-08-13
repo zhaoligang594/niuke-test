@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 75. 颜色分类
+ * 荷兰国旗的问题
  *
  * @author breakpoint/zlg
  * 2020/08/29
@@ -38,6 +39,7 @@ public class Solution75 {
         System.out.println(Arrays.toString(nums));
     }
 
+    // 荷兰国旗的问题
     public void sortColors(int[] nums) {
         int less = -1, more = nums.length, cur = 0;
         while (cur < more) {
