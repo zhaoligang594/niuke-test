@@ -43,17 +43,19 @@ public class Solution67 {
         System.out.println(s);
     }
 
+    // 是错误的 如果位数超过了已知的，就会产生问题
+    public String addBinary2(String a, String b) {
+        return Integer.toBinaryString(
+                Integer.parseInt(a, 2) + Integer.parseInt(b, 2)
+        );
+    }
 
     // 二进制求和的操作
     public String addBinary(String a, String b) {
-
         int lenA = a.length();
         int lenB = b.length();
-
         int len = lenA > lenB ? lenA : lenB;
-
         int[] result = new int[len + 1];
-
         int i = 1, pre = 0;
         while (lenA >= i && lenB >= i) {
             int temp = (a.charAt(lenA - i) - '0' + b.charAt(lenB - i) - '0' + pre);
@@ -61,24 +63,19 @@ public class Solution67 {
             pre = temp / 2;
             i++;
         }
-
-
         while (lenA >= i) {
             int temp = (a.charAt(lenA - i) - '0' + pre);
             result[result.length - i] = temp % 2 + '0';
             pre = temp / 2;
             i++;
         }
-
         while (lenB >= i) {
             int temp = (b.charAt(lenB - i) - '0' + pre);
             result[result.length - i] = temp % 2 + '0';
             pre = temp / 2;
             i++;
         }
-
         result[0] = pre + '0';
-
         return result[0] == '0' ? new String(result, 1, result.length - 1) : new String(result, 0, result.length);
     }
 }

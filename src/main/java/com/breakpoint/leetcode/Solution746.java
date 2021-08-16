@@ -6,7 +6,7 @@ package com.breakpoint.leetcode;
  * https://leetcode-cn.com/problems/min-cost-climbing-stairs/
  *
  * @author :breakpoint/赵立刚
- * @date : 2020/07/13
+ * create on 2020/07/13
  */
 public class Solution746 {
 

@@ -39,6 +39,7 @@ public class Solution494 {
         }
     }
 
+    // 采用动态规划的模来计算的
     public int findTargetSumWaysDp(int[] nums, int target) {
         int sum = 0;
         for (int num : nums) {

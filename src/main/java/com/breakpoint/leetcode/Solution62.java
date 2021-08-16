@@ -1,11 +1,15 @@
 package com.breakpoint.leetcode;
 
 /**
+ * https://leetcode-cn.com/problems/unique-paths/submissions/
+ * 不同路径
+ *
  * @author breakpoint/赵先生
  * 2020/12/09
  */
 public class Solution62 {
 
+    // 不同的路径数量
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m + 1][n + 1];
         dp[0][1] = 1;
