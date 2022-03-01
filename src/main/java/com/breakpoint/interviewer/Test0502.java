@@ -12,7 +12,7 @@ public class Test0502 {
     }
 
     public String printBin(double num) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append("0.");
         while (num != 0) {
             if(sb.length()>=32) return "ERROR";

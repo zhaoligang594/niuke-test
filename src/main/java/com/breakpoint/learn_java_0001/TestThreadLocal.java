@@ -1,5 +1,7 @@
 package com.breakpoint.learn_java_0001;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * ThreadLocal
  *
@@ -9,12 +11,20 @@ package com.breakpoint.learn_java_0001;
  */
 public class TestThreadLocal {
     public static void main(String[] args) {
-        ThreadLocal<Object> threadLocal = new ThreadLocal<>();
-        Object o = new Object();
-        System.out.println(o);
-        threadLocal.set(o);
-        threadLocal.set(null);
-        Object o1 = threadLocal.get();
-        System.out.println(o1);
+        final AtomicInteger atomicInteger = new AtomicInteger(0);
+        final ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>() {
+            @Override
+            protected Integer initialValue() {
+                System.out.println(Thread.currentThread().getName() + "调用了这个方法");
+                return atomicInteger.getAndIncrement();
+            }
+        };
+
+        new Thread(() -> {
+            threadLocal.remove();
+            System.out.println(threadLocal.get());
+            threadLocal.remove();
+            System.out.println(threadLocal.get());
+        }).start();
     }
 }

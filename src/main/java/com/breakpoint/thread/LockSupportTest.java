@@ -13,7 +13,7 @@ public class LockSupportTest {
 
     public static void main(String[] args) {
 
-        System.out.println(String.format("%010d", 2147483647+1));
+        System.out.println(String.format("%010d", 2147483647 + 1));
 
         Thread thread = new Thread(() -> {
             System.out.println("我执行了1");
@@ -32,6 +32,11 @@ public class LockSupportTest {
             }
             System.out.println("我只行了3");
             LockSupport.unpark(thread);
-        }).start();
+        }, "name").start();
+
+
+        new Thread(() -> {
+
+        }, "name").start();
     }
 }

@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author :breakpoint/赵立刚
- * @date : 2020/07/19
+ * create on 2020/07/19
  */
-public class MyThread  extends Thread{
+public class MyThread extends Thread {
 
     public MyThread(@NotNull String name) {
         super(name);
