@@ -24,6 +24,12 @@ public class LockSupportTest {
         // 启动线程
         thread.start();
 
+        Thread thread2 = new Thread(() -> {
+            System.out.println("我执行了11");
+            LockSupport.park(object);
+            System.out.println("我执行了22");
+        });
+
         new Thread(() -> {
             try {
                 TimeUnit.SECONDS.sleep(3);
@@ -31,6 +37,7 @@ public class LockSupportTest {
                 e.printStackTrace();
             }
             System.out.println("我只行了3");
+            LockSupport.unpark(thread2);
             LockSupport.unpark(thread);
         }, "name").start();
 

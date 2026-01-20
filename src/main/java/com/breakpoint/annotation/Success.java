@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  * @author :breakpoint/赵立刚
  * create on 2020/07/10
  */
-@Repeatable()
+//@Repeatable()
 @Inherited
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

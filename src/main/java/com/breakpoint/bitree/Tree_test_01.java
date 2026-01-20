@@ -1,6 +1,5 @@
 package com.breakpoint.bitree;
 
-import com.breakpoint.annotation.Fail;
 import com.breakpoint.annotation.Success;
 import com.breakpoint.utils.TreeNode;
 import com.breakpoint.utils.TreeUtils;

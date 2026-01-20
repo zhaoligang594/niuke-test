@@ -1,5 +1,7 @@
 package sjamhguigu;
 
+import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -11,4 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class VolatileTest {
     AtomicInteger atomicInteger = new AtomicInteger();
+
+    public static void main(String[] args) {
+    }
 }
